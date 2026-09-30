@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wankhede Family Tree — DMGT Project</title>
+<style>
+:root{--bg:#070b1d;--card:rgba(18,24,56,.74);--tx:#eef0ff;--mut:#a7afd6;--line:rgba(148,163,255,.3);--acc:#34d399;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth;background:var(--bg)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--tx);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(900px 520px at 85% -5%,color-mix(in srgb,var(--acc) 24%,transparent),transparent),radial-gradient(800px 500px at -10% 35%,rgba(124,92,255,.2),transparent),var(--bg)}
+#sky{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.top,.w,footer{position:relative;z-index:1}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif;margin:0 0 .4em;line-height:1.2}
+.w{max-width:1100px;margin:auto;padding:0 18px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 18px;max-width:1100px;margin:auto}
+.top b{font-family:Georgia,serif;font-size:1.05rem}
+.dot{width:24px;height:24px;border-radius:50%;border:2px solid rgba(255,255,255,.55);cursor:pointer;padding:0;margin-left:6px;box-shadow:0 0 10px currentColor}
+.hero{position:relative;padding:52px 0 34px;overflow:hidden}
+.hero>*:not(.orb){position:relative;z-index:1}
+.hero h1{font-size:clamp(2.4rem,9vw,4.4rem);text-shadow:0 0 34px color-mix(in srgb,var(--acc) 55%,transparent)}
+.hero p{color:var(--mut);max-width:50ch;font-size:1.05rem}
+.orb{position:absolute;right:-40px;top:-6px;width:min(360px,75vw);aspect-ratio:1;opacity:.6}
+.orb::before{content:"";position:absolute;inset:38%;border-radius:50%;background:radial-gradient(circle,var(--acc),transparent 70%);filter:blur(4px)}
+.orb i{position:absolute;border:1px dashed var(--line);border-radius:50%;animation:spin 30s linear infinite}
+.orb i:nth-child(1){inset:24%}
+.orb i:nth-child(2){inset:10%;animation-duration:50s;animation-direction:reverse}
+.orb i:nth-child(3){inset:-6%;animation-duration:80s}
+.orb i::after{content:"";position:absolute;top:-5px;left:50%;width:10px;height:10px;border-radius:50%;background:var(--acc);box-shadow:0 0 14px var(--acc)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes flow{to{stroke-dashoffset:-14}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+.btn{background:var(--acc);color:#06110d;border:0;border-radius:999px;padding:10px 18px;font:inherit;font-weight:700;cursor:pointer;margin:4px 8px 4px 0}
+.btn.o{background:transparent;color:var(--tx);border:1.5px solid var(--line)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+section{padding:28px 0}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+input{flex:1;min-width:150px;padding:10px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--tx);font:inherit}
+#tw{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px;backdrop-filter:blur(6px)}
+svg{display:block;max-width:100%}#sv{width:100%;height:auto}
+.ed{fill:none;stroke:var(--line);stroke-width:1.5}
+.nd{cursor:pointer}
+.nd rect{fill:rgba(30,40,90,.8);stroke:var(--line);stroke-width:1.5}
+.nd text{fill:var(--tx);font-size:var(--fs,12px);font-family:system-ui,sans-serif;text-anchor:middle;pointer-events:none}
+.nd.me rect{stroke:var(--acc);stroke-dasharray:4 3}
+.sel .nd:not(.on){opacity:.35}
+.sel .ed:not(.on){opacity:.18}
+.nd.on rect{stroke:var(--acc);stroke-width:2.5;fill:color-mix(in srgb,var(--acc) 26%,#141a40);filter:drop-shadow(0 0 7px var(--acc))}
+.ed.on{stroke:var(--acc);stroke-width:2.5;stroke-dasharray:7 7;animation:flow 1s linear infinite}
+.pn{margin-top:12px;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px)}
+.pn p{margin:.3em 0}.m{color:var(--mut)}
+.g{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.c{padding:16px;background:var(--card);border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px)}
+.c small{color:var(--mut)}.c p{margin:.3em 0}
+.n{font:700 2.4rem Georgia,serif;color:var(--acc);text-shadow:0 0 18px var(--acc)}
+footer{padding:26px 18px 40px;color:var(--mut);text-align:center}
+</style>
+</head>
+<body>
+<canvas id="sky"></canvas>
+<div class="top"><b>DMGT Project</b><div id="ac"></div></div>
+<div class="w">
+<div class="hero">
+<div class="orb"><i></i><i></i><i></i></div>
+<h1>DMGT (Tree)</h1>
+<p>A rooted-tree model of a four-generation family, with Nathuji Wankhede and Lahana Wankhede as the root and every descendant as a vertex. Developed for Discrete Mathematics and Graph Theory (DMGT).</p>
+<button class="btn" onclick="sel(me);$('tree').scrollIntoView()">Trace Pratham's lineage</button>
+<button class="btn o" onclick="$('tree').scrollIntoView()">Open the tree</button>
+</div>
+
+<section id="tree">
+<h2>The Family Tree</h2>
+<div class="bar"><input id="q" placeholder="Search a name, e.g. Kishor" aria-label="Search family member"><button class="btn o" onclick="rst()">Reset</button></div>
+<div id="tw"><svg id="sv" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wankhede family tree"></svg></div>
+<div class="pn" id="pn"></div>
+</section>
+
+<section><h2>Generations</h2><div class="g" id="gen"></div></section>
+<section><h2>Branches</h2><div class="g" id="br"></div></section>
+<section><h2>The Family in Numbers</h2><div class="g" id="st"></div></section>
+</div>
+<footer>DMGT Project — Discrete Mathematics and Graph Theory · Wankhede Family Tree</footer>
+<script>
+const $=id=>document.getElementById(id),e=s=>s.replace(/&/g,"&amp;");
+const T={n:"Nathuji Wankhede, Lahana Wankhede",r:"The root couple, where the family begins",k:[
+{n:"Krishna Wankhede",r:"Eldest child and only son of Nathuji, Lahana",k:[
+ {n:"Pratham Wankhede",r:"Son of Krishna"},{n:"Anushka Wankhede",r:"Daughter of Krishna"}]},
+{n:"Pushpa Nistane",r:"Second child, daughter of Nathuji, Lahana",k:[
+ {n:"Kishor Nistane",r:"Son of Pushpa",k:[{n:"Pihu Nistane",r:"Daughter of Kishor"}]},
+ {n:"Bharti Thakre",r:"Daughter of Pushpa, born Nistane",k:[{n:"Aniruddh Thakre",r:"Son of Bharti"}]}]},
+{n:"Devka Kadu",r:"Third child, daughter of Nathuji, Lahana",k:[
+ {n:"Namdev Kadu",r:"Son of Devka"},
+ {n:"Mangesh Kadu",r:"Son of Devka",k:[{n:"Sarthak Kadu",r:"Son of Mangesh"},{n:"Yashasvi Kadu",r:"Daughter of Mangesh"}]},
+ {n:"Seema Kadu",r:"Daughter of Devka",k:[{n:"Suraj",r:"Son of Seema"},{n:"Harish",r:"Son of Seema"}]}]},
+{n:"Kanta Kakade",r:"Fourth child, daughter of Nathuji, Lahana",k:[
+ {n:"Dilip Kakade",r:"Son of Kanta"},{n:"Sangeeta Kakade",r:"Daughter of Kanta"}]}
+]};
+const RM=["I","II","III","IV"],TT=["The Roots","Sons and Daughters","Grandchildren","The Little Ones"],all=[];let leaf=0,me,cur=null;
+(function w(n,d,p){n.d=d;n.p=p;n.br=d==1?"Root":d==2?n.n.split(" ").pop():p.br;n.i=all.push(n)-1;if(n.n=="Pratham Wankhede")me=n;(n.k||[]).forEach(c=>w(c,d+1,n))})(T,1,null);
+(function l(n){if(n.k){n.k.forEach(l);n.x=(n.k[0].x+n.k[n.k.length-1].x)/2}else n.x=leaf++})(T);
+function wrap(s,L){const o=[];let c="";s.split(" ").forEach(w=>{if(c&&(c+" "+w).length>L){o.push(c);c=w}else c=(c+" "+w).trim()});o.push(c);return o.map(e)}
+const sv=$("sv"),hint='<p class="m">Tap any name in the tree to see who they are and how they connect back to Nathuji and Lahana.</p>';
+function draw(){
+ const cw=Math.floor($("tw").clientWidth-20),SW=Math.max(118,cw/leaf),NW=Math.min(150,SW-14),fs=12,L=Math.max(8,Math.floor(NW/(fs*.6))),LH=110,W=Math.ceil(leaf*SW),H=3*LH+80;
+ const X=n=>n.x*SW+SW/2,Y=n=>(n.d-1)*LH+34;let h="";
+ all.forEach(n=>{n.ls=wrap(n.n,L);n.h=Math.max(44,n.ls.length*(fs+3)+12)});
+ all.forEach(n=>{if(n.p){const a=X(n.p),b=Y(n.p)+n.p.h/2,c=X(n),d=Y(n)-n.h/2,m=(b+d)/2;h+=`<path class="ed" id="e${n.i}" d="M${a} ${b}C${a} ${m} ${c} ${m} ${c} ${d}"/>`}});
+ all.forEach(n=>{const x=X(n),y=Y(n),t=y-(n.ls.length-1)*(fs+3)/2+fs*.35;h+=`<g class="nd${n==me?" me":""}" id="n${n.i}"><rect x="${x-NW/2}" y="${y-n.h/2}" width="${NW}" height="${n.h}" rx="12"/>${n.ls.map((s,j)=>`<text x="${x}" y="${t+j*(fs+3)}">${s}</text>`).join("")}</g>`});
+ sv.innerHTML=h;sv.setAttribute("viewBox",`0 0 ${W} ${H}`);sv.setAttribute("width","100%");sv.removeAttribute("height");sv.style.setProperty("--fs",fs+"px");
+ cur&&sel(cur)}
+function sel(n){cur=n;const s=new Set(),ch=[];for(let c=n;c;c=c.p){s.add(c.i);ch.unshift(c.p?c.n.split(" ")[0]:"Nathuji, Lahana")}
+sv.classList.add("sel");all.forEach(m=>{$("n"+m.i).classList.toggle("on",s.has(m.i));const x=$("e"+m.i);x&&x.classList.toggle("on",s.has(m.i))});
+$("pn").innerHTML=`<h3>${e(n.n)}</h3><p class="m">${e(n.r)}</p><p><b>Generation</b> ${RM[n.d-1]}. <b>Branch</b> ${n.br}.</p><p><b>Children</b> ${(n.k||[]).map(c=>e(c.n)).join(", ")||"None listed yet"}</p><p><b>Lineage</b> ${ch.join(" → ")}</p>`}
+function rst(){cur=null;sv.classList.remove("sel");sv.querySelectorAll(".on").forEach(x=>x.classList.remove("on"));$("q").value="";$("pn").innerHTML=hint}
+draw();rst();
+sv.onclick=ev=>{const g=ev.target.closest(".nd");if(g)sel(all[+g.id.slice(1)])};
+$("q").oninput=ev=>{const v=ev.target.value.trim().toLowerCase();if(!v){const q=$("q");rst();return}const n=all.find(m=>m.n.toLowerCase().includes(v));if(n)sel(n)};
+$("gen").innerHTML=RM.map((r,i)=>`<div class="c"><small>Generation ${r}</small><h3>${TT[i]}</h3><p>${all.filter(n=>n.d==i+1).map(n=>e(n.n)).join("<br>")}</p></div>`).join("");
+const cnt=n=>1+(n.k||[]).reduce((a,c)=>a+cnt(c),0);
+$("br").innerHTML=T.k.map(n=>`<div class="c"><small>${n.br} branch</small><h3>${n.n}</h3><p>${cnt(n)} members</p></div>`).join("");
+$("st").innerHTML=[[4,"Generations"],[all.length+1,"Family members"],[4,"Branches"]].map(a=>`<div class="c"><div class="n">${a[0]}</div><p>${a[1]}</p></div>`).join("");
+$("ac").innerHTML=[["#34d399","Emerald"],["#fbbf24","Amber"],["#60a5fa","Sapphire"],["#c084fc","Amethyst"]].map(a=>`<button class="dot" style="background:${a[0]};color:${a[0]}" title="${a[1]}" aria-label="${a[1]} theme" onclick="document.documentElement.style.setProperty('--acc','${a[0]}')"></button>`).join("");
+const cv=$("sky"),cx=cv.getContext("2d"),rm=matchMedia("(prefers-reduced-motion: reduce)").matches;let st=[],lw=innerWidth;
+function sz(){cv.width=innerWidth;cv.height=innerHeight;st=Array.from({length:Math.round(innerWidth*innerHeight/6500)},()=>({x:Math.random()*cv.width,y:Math.random()*cv.height,r:Math.random()*1.4+.3,p:Math.random()*6.28,s:Math.random()*.02+.005}))}
+function dr(){cx.clearRect(0,0,cv.width,cv.height);cx.fillStyle="#fff";st.forEach(a=>{a.p+=a.s;cx.globalAlpha=.35+.65*Math.abs(Math.sin(a.p));cx.beginPath();cx.arc(a.x,a.y,a.r,0,7);cx.fill()});if(!rm)requestAnimationFrame(dr)}
+sz();dr();
+let rt;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{if(innerWidth!=lw){lw=innerWidth;draw();sz();rm&&dr()}},120)});
+</script>
+</body>
+</html>
